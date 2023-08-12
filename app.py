@@ -13,7 +13,7 @@ car_dict={
 }
 
 VALID_USERNAME = 'admin'
-VALID_PASSWORD = 'a'
+VALID_PASSWORD = 'admin'
 
 @app.route('/get_category', methods=['GET'])
 def get_car_category():
