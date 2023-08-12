@@ -19,7 +19,8 @@ def update_car_category():
     if request.method == 'POST':
         Category = request.form['Category']
         Price = request.form['Price']
-        car_dict[Category] = Price
+        if (Category in car_dict):
+            car_dict[Category] = Price
 
         return redirect(url_for('update_car_category'))
 
