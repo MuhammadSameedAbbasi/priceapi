@@ -10,20 +10,6 @@ cred = credentials.Certificate("templates\subsidized-fueling-system-firebase-adm
 
 firebase_admin.initialize_app( cred, {'storageBucket': 'subsidized-fueling-system.appspot.com'})
 
-@app.route('/get_car_category', methods=['GET'])
-def get_car_category():
-    input_data = request.args.get("model")
-
-    if not input_data:
-        return jsonify({"error": "Input not provided"}), 400
-
-    output_data = car_dict.get(input_data, "Not found")
-    response = {
-        
-        "category": input_data,
-        "price": output_data
-    }
-    return jsonify(response), 200
 
 @app.route('/', methods=['GET', 'POST'])
 def update_car_category():
@@ -59,4 +45,4 @@ def load_category_list():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
